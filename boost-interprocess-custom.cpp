@@ -4,6 +4,7 @@
 #include <boost/interprocess/allocators/allocator.hpp>
 #include <functional>
 #include <utility>
+#include <chrono>
 
 #define SEGMENT_NAME "MySharedMemory"
 #define OBJECT_NAME  "MyMap"
@@ -12,9 +13,9 @@ using namespace boost::interprocess;
 
 //Note that map<Key, MappedType>'s value_type is std::pair<const Key, MappedType>,
 //so the allocator must allocate that pair.
-typedef int    KeyType;
-typedef float  MappedType;
-typedef std::pair<const int, float> ValueType;
+typedef int       KeyType;
+typedef uint64_t  MappedType;
+typedef std::pair<const int, uint64_t> ValueType;
 
 //Alias an STL compatible allocator of for the map.
 //This allocator will allow to place containers
@@ -57,7 +58,7 @@ int main (int argc, char *argv[]) {
 
       //Insert data in the map
       for(int i = 0; i < 100; ++i){
-         mymap->insert(std::pair<const int, float>(i, (float)i));
+         mymap->insert(std::pair<const int, uint64_t>(i, (uint64_t)i));
       }
 
       //Launch child process
