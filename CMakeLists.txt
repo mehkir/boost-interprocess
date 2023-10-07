@@ -3,4 +3,5 @@ project(boost-interprocess)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(boost-interprocess boost-interprocess.cpp)
+add_executable(boost-interprocess-example boost-interprocess-example.cpp)
+add_executable(boost-interprocess-custom boost-interprocess-custom.cpp)

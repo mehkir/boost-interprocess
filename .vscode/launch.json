@@ -2,11 +2,38 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch boost-interprocess",
+            "name": "(gdb) Launch boost-interprocess-example",
             "type": "cppdbg",
             "request": "launch",
             // Resolved by CMake Tools:
-            "program": "${workspaceFolder}/build/boost-interprocess",
+            "program": "${workspaceFolder}/build/boost-interprocess-example",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [
+                {
+                    // add the directory where our target was built to the PATHs
+                    // it gets resolved by CMake Tools:
+                    "name": "PATH",
+                    "value": "${env:PATH}:${command:cmake.getLaunchTargetDirectory}"
+                }
+            ],
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "CMake: build"
+        },
+        {
+            "name": "(gdb) Launch boost-interprocess-custom",
+            "type": "cppdbg",
+            "request": "launch",
+            // Resolved by CMake Tools:
+            "program": "${workspaceFolder}/build/boost-interprocess-custom",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
