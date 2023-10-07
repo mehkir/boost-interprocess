@@ -62,7 +62,7 @@ int main (int argc, char *argv[]) {
 
       //Launch child process
       std::string s(argv[0]); s += " child ";
-      if(0 != std::system("/home/mehmet/vscode\\ workspaces/boost-interprocess/build/boost-interprocess child"))
+      if(0 != std::system(s.c_str()))
          return 1;
 
       //Check child has destroyed the map
