@@ -42,7 +42,14 @@ int main () {
    host_map *host_map_instance = segment.construct<host_map>("host_map")(std::less<host_key_t>(), void_allocator_instance);
    metrics_map_data mapped_metrics_map(void_allocator_instance);
    mapped_metrics_map.metrics_map_.insert({123,456});
+   mapped_metrics_map.metrics_map_.insert({789,234});
    host_map_instance->insert({999,mapped_metrics_map});
+
+   metrics_map_data mapped_metrics_map_2(void_allocator_instance);
+   mapped_metrics_map_2.metrics_map_.insert({345,678});
+   mapped_metrics_map_2.metrics_map_.insert({246,864});
+   host_map_instance->insert({888,mapped_metrics_map_2});
+   
    for (auto host_entry : *host_map_instance) {
       std::cout << "Host map content for key=" << host_entry.first << std::endl;
       for (auto metrics_entry : host_entry.second.metrics_map_) {
