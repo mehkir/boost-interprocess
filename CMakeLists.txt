@@ -5,3 +5,4 @@ set(CMAKE_CXX_STANDARD 23)
 
 add_executable(boost-interprocess-example boost-interprocess-example.cpp)
 add_executable(boost-interprocess-custom boost-interprocess-custom.cpp)
+add_executable(boost-interprocess-nested-containers boost-interprocess-nested-containers.cpp)
