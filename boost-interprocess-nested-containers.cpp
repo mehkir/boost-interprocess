@@ -22,7 +22,7 @@ class metrics_map_data {
       {}
 };
 
-//Definition of the <host,metrics> map holding a string as key and complex_data as mapped type
+//Definition of the <host,metrics> map holding an uint32_t as key and metrics_map_data as mapped type
 typedef std::uint32_t                                                                  host_key_t;
 typedef std::pair<const host_key_t, metrics_map_data>                                  host_map_value_t;
 typedef allocator<host_map_value_t, segment_manager_t>                                 host_map_allocator;
